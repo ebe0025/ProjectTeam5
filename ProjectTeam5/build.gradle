@@ -34,7 +34,15 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	// log4jdbc 설정
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	// jquery 설정
+	implementation 'org.webjars:jquery:3.7.1'
+	// 비밀번호 암호화
+	implementation 'org.springframework.security:spring-security-crypto:6.3.1'
 }
 
 tasks.named('test') {
