@@ -9,4 +9,5 @@ import com.study.spring.repository.DiaryRepository;
 public class DiaryService {
 	@Autowired
 	private DiaryRepository diaryRepository;
+	
 }
