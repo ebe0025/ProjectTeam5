@@ -8,7 +8,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class Board {
 	
@@ -26,14 +29,14 @@ public class Board {
     private Member member;
 	
 	@ManyToOne
-    @JoinColumn(name = "hNum") 
-    private Home home;
+	@JoinColumn(name = "hNum")
+	private Home home;
 	
 	@NonNull
 	private String bTitle;
 	private String bContent;
-	private String sysdate;
-	private String update;
+	private String createDate;
+	private String updateData;
 	private String imgName;
 	private String imgPath;
 	
