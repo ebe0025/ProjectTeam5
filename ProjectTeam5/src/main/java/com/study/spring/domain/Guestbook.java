@@ -7,7 +7,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
+@Data
 @Entity
 public class Guestbook {
 	@Id
@@ -22,10 +24,10 @@ public class Guestbook {
 	@ManyToOne
     @JoinColumn(name = "id") 
     private Member member;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "hNum") 
-    private Home home;
+	@JoinColumn(name = "hNum")
+	private Home home;
 	
 	private String nickname;
 	private String gContent;

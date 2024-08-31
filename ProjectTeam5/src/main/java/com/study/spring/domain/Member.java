@@ -3,7 +3,9 @@ package com.study.spring.domain;
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Member {
 	@Id
@@ -17,6 +19,6 @@ public class Member {
 	private String email;
 	private String address;
 	private String gender;
-	private String sysdate;
+	private String createDate;
 	
 }

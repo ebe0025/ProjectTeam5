@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
+@Data
 @Entity
 public class Home {
 	@Id
@@ -15,5 +17,6 @@ public class Home {
 			)	
 	@GeneratedValue(generator="hSEQ")
 	private Long hNum;
+	
 	private String hName;
 }
