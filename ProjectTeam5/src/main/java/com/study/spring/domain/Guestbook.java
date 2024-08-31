@@ -24,7 +24,7 @@ public class Guestbook {
     private Member member;
 	
 	@ManyToOne
-    @JoinColumn(name = "home") 
+    @JoinColumn(name = "hNum") 
     private Home home;
 	
 	private String nickname;
