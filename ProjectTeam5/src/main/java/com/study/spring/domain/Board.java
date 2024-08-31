@@ -26,7 +26,7 @@ public class Board {
     private Member member;
 	
 	@ManyToOne
-    @JoinColumn(name = "home") 
+    @JoinColumn(name = "hNum") 
     private Home home;
 	
 	@NonNull
