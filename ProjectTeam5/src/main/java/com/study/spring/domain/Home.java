@@ -1,6 +1,5 @@
 package com.study.spring.domain;
 
-import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,11 +19,5 @@ public class Home {
 	private Long hNum;
 	
 	private String hName;
-	@NonNull
-	private String bTitle;
-	private String bContent;
-	private String createDate;
-	private String updateData;
-	private String imgName;
-	private String imgPath;
+	
 }
