@@ -28,9 +28,7 @@ public class Board {
     @JoinColumn(name = "id") 
     private Member member;
 	
-	@ManyToOne
-	@JoinColumn(name = "hNum")
-	private Home home;
+
 	
 	@NonNull
 	private String bTitle;
