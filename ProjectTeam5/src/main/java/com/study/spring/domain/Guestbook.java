@@ -22,12 +22,9 @@ public class Guestbook {
 	private Long gNum;
 	
 	@ManyToOne
-    @JoinColumn(name = "id") 
+    @JoinColumn(name = "memId") 
     private Member member;
 
-	@ManyToOne
-	@JoinColumn(name = "hNum")
-	private Home home;
 	
 	private String nickname;
 	private String gContent;
