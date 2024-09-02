@@ -22,7 +22,7 @@ public class Friends {
 	@GeneratedValue(generator="fSEQ")
 	private Long fNum;
 	@ManyToOne
-    @JoinColumn(name = "id") 
+    @JoinColumn(name = "memId") 
     private Member member;
 	@NonNull
 	private String friendId;

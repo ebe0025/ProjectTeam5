@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 public class Member {
 	@Id
-	private String id;
+	private String memId;
 	@NonNull
 	private String pass;
 	@NonNull

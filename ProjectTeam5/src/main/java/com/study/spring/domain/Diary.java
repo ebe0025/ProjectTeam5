@@ -24,7 +24,7 @@ public class Diary {
 	private Long dNum;
 	
 	@ManyToOne
-    @JoinColumn(name = "id") 
+    @JoinColumn(name = "memId") 
     private Member member;
 	
 	

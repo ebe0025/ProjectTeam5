@@ -25,7 +25,7 @@ public class Board {
 	private Long bNum;
 	
 	@ManyToOne
-    @JoinColumn(name = "id") 
+    @JoinColumn(name = "memId") 
     private Member member;
 	
 
