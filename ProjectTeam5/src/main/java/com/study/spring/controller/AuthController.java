@@ -1,5 +1,6 @@
 package com.study.spring.controller;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.spring.domain.Member;
 import com.study.spring.repository.MemberRepository;
 import com.study.spring.util.JwtUtil;
 
