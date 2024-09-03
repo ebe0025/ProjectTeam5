@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.study.spring.domain.Board;
 import com.study.spring.service.BoardService;
 
-@Controller
+@RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@ResponseBody
 	@PostMapping("/board/write")
 	public String write(Board board, @RequestParam("image") MultipartFile img) throws Exception {
 		
@@ -33,7 +33,6 @@ public class BoardController {
 		return "안녕";
 	}
 	
-	@ResponseBody
 	@GetMapping("/board/totalBoard")
 	public List<Board> totalBoard(){
 		List<Board> list = boardService.totalBoard();
