@@ -18,6 +18,7 @@ import com.study.spring.util.JwtUtil;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3003") // CORS 설정
+<<<<<<< Updated upstream:ProjectTeam5/src/main/java/com/study/spring/controller/AuthController.java
 @RequestMapping("/api/auth") // API 경로 설정
 public class AuthController {
 
@@ -25,6 +26,17 @@ public class AuthController {
     private MemberRepository memberRepository; // 회원 레포지토리 주입
 
     @PostMapping("/signup")
+=======
+@RequestMapping("/api/auth")
+public class MemberController {
+	
+	
+	@Autowired
+	private MemberService memberService;
+	
+		
+   @PostMapping("/signup")
+>>>>>>> Stashed changes:ProjectTeam5/src/main/java/com/study/spring/controller/MemberController.java
     public String signup(@RequestBody Member member) {
         if (memberRepository.existsById(member.getMemId())) {
             return "User already exists"; // 이미 존재하는 사용자
@@ -35,7 +47,12 @@ public class AuthController {
 
     @PostMapping("/login")
     public List<Object> login(@RequestBody Member loginRequest) {
+<<<<<<< Updated upstream:ProjectTeam5/src/main/java/com/study/spring/controller/AuthController.java
         Optional<Member> member = memberRepository.findById(loginRequest.getMemId()); // 사용자 조회
+=======
+    	
+        Optional<Member> member = memberService.findById(loginRequest.getMemId()); // 사용자 조회
+>>>>>>> Stashed changes:ProjectTeam5/src/main/java/com/study/spring/controller/MemberController.java
         System.out.println("loginRequest :" + loginRequest);
         
         if (member.isPresent() && member.get().getPass().equals(loginRequest.getPass())) {
