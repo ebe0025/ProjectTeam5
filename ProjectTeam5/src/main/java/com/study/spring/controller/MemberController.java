@@ -40,8 +40,6 @@ public class MemberController {
 	    } else {
 	    	 memberService.insertMember(member);   // 이미지가 없는 경우
 	    }
-	   
-	   
         
         return "User registered successfully"; // 등록 성공 메시지
     }
