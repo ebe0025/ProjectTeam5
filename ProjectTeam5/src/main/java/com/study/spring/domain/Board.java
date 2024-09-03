@@ -28,8 +28,6 @@ public class Board {
     @JoinColumn(name = "memId") 
     private Member member;
 	
-
-	
 	@NonNull
 	private String bTitle;
 	private String bContent;
