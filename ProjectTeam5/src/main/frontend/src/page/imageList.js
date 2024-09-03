@@ -8,7 +8,7 @@ function ImageList() {
 
   useEffect(() => {
     axios
-      .get('/board/totalBoard')
+      .get('/board/total')
       .then((response) => {
         console.log("Fetched images:", response.data);
         setImages(response.data);

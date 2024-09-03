@@ -19,6 +19,7 @@ public class BoardService {
 
     private final String uploadDir = System.getProperty("user.dir") + "/uploadedFiles";
 
+    //사진이 있는 경우
     public void write(Board board, MultipartFile img) throws Exception {
         // 파일 저장 경로 설정
         File dir = new File(uploadDir);
@@ -33,6 +34,12 @@ public class BoardService {
         // 파일 경로 저장
         board.setImgName(fileName);
         board.setImgPath("/files/" + fileName);
+
+        boardRepository.save(board);
+    }
+    
+    //이미지가 없는 경우
+    public void write(Board board) {
 
         boardRepository.save(board);
     }

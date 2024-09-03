@@ -24,4 +24,8 @@ public class Member {
 	@CreatedDate
 	private String createDate;
 	
+	//사진 추가 경로
+	private String imgName;
+	private String imgPath;	
+	
 }

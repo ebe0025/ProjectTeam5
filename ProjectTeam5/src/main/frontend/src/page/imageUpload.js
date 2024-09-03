@@ -22,15 +22,13 @@ function ImageUpload() {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-      if (!selectedImage || !bTitle || !bContent) {
-        alert("Please complete the form before submitting.");
-        return;
-      }
   
       const formData = new FormData();
       formData.append("bTitle", bTitle);
       formData.append("bContent", bContent);
-      formData.append("image", selectedImage.file);
+      if (selectedImage) {
+        formData.append("image", selectedImage.file);
+      }
   
       try {
         const response = await fetch("/board/write", {
@@ -107,4 +105,5 @@ function ImageUpload() {
       </form>
     );
 }
+
 export default ImageUpload;

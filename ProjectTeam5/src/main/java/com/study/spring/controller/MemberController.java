@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.study.spring.domain.Member;
 import com.study.spring.repository.MemberRepository;
@@ -19,7 +21,7 @@ import com.study.spring.util.JwtUtil;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3003") // CORS 설정
-@RequestMapping("/api/auth")
+@RequestMapping("/member")
 public class MemberController {
 	
 	
@@ -30,9 +32,16 @@ public class MemberController {
     private MemberRepository memberRepository;
 	
    @PostMapping("/signup")
-    public String signup(@RequestBody Member member) {
+    public String signup(@RequestBody Member member, @RequestParam(value = "image", required = false) MultipartFile img) throws Exception {
 	   
-        memberService.insertMember(member); // 사용자 저장
+	    // 이미지가 있으면 처리, 없으면 그냥 넘어감
+	    if (img != null && !img.isEmpty()) {
+	    	memberService.insertMember(member, img);
+	    } else {
+	    	 memberService.insertMember(member);   // 이미지가 없는 경우
+	    }
+	   
+	   
         
         return "User registered successfully"; // 등록 성공 메시지
     }

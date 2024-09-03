@@ -18,31 +18,37 @@ import com.study.spring.domain.Board;
 import com.study.spring.service.BoardService;
 
 @RestController
+@RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@PostMapping("/board/write")
-	public String write(Board board, @RequestParam("image") MultipartFile img) throws Exception {
-		
-		
-		boardService.write(board, img);
-		
-		
-		
-		return "안녕";
+	//board db에 한개 작성
+	@PostMapping("/write")
+	public String write(Board board, @RequestParam(value = "image", required = false) MultipartFile img) throws Exception {
+	    
+	    // 이미지가 있으면 처리, 없으면 그냥 넘어감
+	    if (img != null && !img.isEmpty()) {
+	        boardService.write(board, img);
+	    } else {
+	        boardService.write(board);  // 이미지가 없는 경우
+	    }
+	    
+		return "작성완료";
 	}
 	
-	@GetMapping("/board/totalBoard")
+	//모든 board를 가져옴
+	@GetMapping("/total")
 	public List<Board> totalBoard(){
 		List<Board> list = boardService.totalBoard();
 		return list;
 	}
 	
-	@GetMapping("/board/detail")
+	
+	//특정 board 1개를 가져옴
+	@GetMapping("/detail")
 	public Board detailBoard(@RequestParam("bnum") Long bNum)
 	{
-		System.out.println(bNum);
 		return boardService.detailBoard(bNum).get();
 	}
 }
