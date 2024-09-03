@@ -17,7 +17,6 @@ import com.study.spring.domain.Board;
 import com.study.spring.service.BoardService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
