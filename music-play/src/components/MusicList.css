@@ -1,0 +1,29 @@
+.music-list {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  .music-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .music-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .music-list li:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .music-list li.active {
+    background-color: #d0d0d0;
+    font-weight: bold;
+  }
+  
