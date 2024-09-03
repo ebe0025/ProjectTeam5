@@ -1,5 +1,7 @@
 package com.study.spring.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,6 +21,7 @@ public class Member {
 	private String email;
 	private String address;
 	private String gender;
+	@CreatedDate
 	private String createDate;
 	
 }

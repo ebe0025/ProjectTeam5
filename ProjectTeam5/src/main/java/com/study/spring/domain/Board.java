@@ -1,5 +1,8 @@
 package com.study.spring.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +34,9 @@ public class Board {
 	@NonNull
 	private String bTitle;
 	private String bContent;
+	@CreatedDate
 	private String createDate;
+	@LastModifiedDate
 	private String updateData;
 	private String imgName;
 	private String imgPath;

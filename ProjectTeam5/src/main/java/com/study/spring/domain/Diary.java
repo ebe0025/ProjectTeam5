@@ -1,5 +1,8 @@
 package com.study.spring.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +34,8 @@ public class Diary {
 	@NonNull
 	private String dTitle;
 	private String dContent;
+	@CreatedDate
 	private String createDate;
+	@LastModifiedDate
 	private String updateData;
 }
