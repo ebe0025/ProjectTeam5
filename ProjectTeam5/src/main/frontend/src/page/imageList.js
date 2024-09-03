@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ImageList() {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // 컴포넌트가 마운트될 때 서버에서 이미지 목록을 가져옴
-    axios.get("http://localhost:8080/board/totalBoard")
+    axios
+      .get('/board/totalBoard')
       .then((response) => {
-        console.log("Fetched images:", response.data); // 데이터 확인용
+        console.log("Fetched images:", response.data);
         setImages(response.data);
       })
       .catch((error) => {
@@ -17,16 +19,24 @@ function ImageList() {
       });
   }, []);
 
+  const handleImageClick = (bnum) => {
+    navigate(`/detail/${bnum}`);
+  };
+
   return (
     <div>
       <h2>Uploaded Images</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {images.map((image, index) => (
-          <div key={index} style={{ margin: "10px" }}>
+          <div
+            key={index}
+            style={{ margin: "10px", cursor: "pointer" }}
+            onClick={() => handleImageClick(image.bnum)}
+          >
             <img
-              src={`http://localhost:8080${image.imgPath}`} // 이미지 경로를 사용하여 렌더링
+              src={image.imgPath}
               alt={image.bTitle}
-              style={{ maxWidth: "2 00px", maxHeight: "200px", objectFit: "cover" }}
+              style={{ maxWidth: "200px", maxHeight: "200px", objectFit: "cover" }}
             />
             <p>{image.btitle}</p>
             <p>{image.bcontent}</p>

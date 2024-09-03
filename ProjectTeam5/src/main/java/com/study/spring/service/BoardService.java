@@ -2,6 +2,7 @@ package com.study.spring.service;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,10 @@ public class BoardService {
     public List<Board> totalBoard() {
         return boardRepository.findAll();
     }
+
+	public Optional<Board> detailBoard(Long bNum) {
+		
+		return boardRepository.findById(bNum);
+		
+	}
 }

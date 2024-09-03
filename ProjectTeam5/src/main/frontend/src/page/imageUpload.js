@@ -33,7 +33,7 @@ function ImageUpload() {
       formData.append("image", selectedImage.file);
   
       try {
-        const response = await fetch("http://localhost:8080/board/write", {
+        const response = await fetch("/board/write", {
           method: "POST",
           body: formData,
         });

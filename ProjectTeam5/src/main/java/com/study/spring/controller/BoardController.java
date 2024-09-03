@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,13 @@ public class BoardController {
 	@GetMapping("/board/totalBoard")
 	public List<Board> totalBoard(){
 		List<Board> list = boardService.totalBoard();
-		System.out.println(list);
 		return list;
+	}
+	
+	@GetMapping("/board/detail")
+	public Board detailBoard(@RequestParam("bnum") Long bNum)
+	{
+		System.out.println(bNum);
+		return boardService.detailBoard(bNum).get();
 	}
 }
