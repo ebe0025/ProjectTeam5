@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,5 +67,11 @@ public class MemberController {
         
         return Collections.singletonList("Invalid credentials"); // 잘못된 인증 정보
     }	
+
+    
+    @GetMapping("/search")
+    public List<Member> searchMembers(@RequestParam("keyword") String keyword) {
+        return memberService.searchMembersByNickname(keyword);
+    }
 
 }

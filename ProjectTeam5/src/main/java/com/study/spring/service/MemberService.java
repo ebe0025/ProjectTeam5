@@ -1,6 +1,7 @@
 package com.study.spring.service;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,9 @@ public class MemberService {
         memberRepository.save(member);
 		
 	}
+	
+    public List<Member> searchMembersByNickname(String keyword) {
+        return memberRepository.findByNicknameContaining(keyword);
+    }
 
 }
