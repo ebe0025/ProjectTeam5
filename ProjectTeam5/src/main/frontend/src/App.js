@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import ImageUpload from './page/imageUpload';
-import ImageList from './page/imageList';
+import MainPanel from './components/MainPanel';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Login from './components/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // 로컬 스토리지에서 로그인 상태 확인
+    const token = localStorage.getItem('token');
+    const id = localStorage.getItem('id');
+    if (token && id) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); // 로그인 상태를 false로 설정
+    localStorage.clear(); // 로컬 스토리지 클리어
+  };
+
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element={<ImageUpload />} />
-        <Route path='/1' element={< ImageList/>} />
-      </Routes>
-    </div>
+    // <Router>
+      <div className="App">
+        {isLoggedIn ? (
+          <MainPanel onLogout={handleLogout} /> // 로그아웃 핸들러를 전달
+        ) : (
+          <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+        )}
+      </div>
+    // </Router>
   );
 }
-
-
-
-
 
 export default App;
