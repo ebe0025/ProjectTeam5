@@ -1,5 +1,7 @@
 import { useNavigate, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
 
 
 function MainPanel({ onLogout }) { // onLogout props 추가

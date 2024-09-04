@@ -6,6 +6,7 @@ import StickerSection from './StickerSection';
 import CommentsSection from './CommentsSection';
 import VisitSection from './VisitSection';
 import FriendsSection from './FriendsSection';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 function Home() {
