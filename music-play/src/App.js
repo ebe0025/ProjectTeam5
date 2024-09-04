@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import MusicPlayer from "./components/MusicPlayer";
-//import MusicList from "./components/MusicList";
-import allMusic from "./musicData";
-import "./App.css";
+import allMusic from "./musicData";  // 음악 데이터를 가져옴
 
 function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // 재생/일시정지 버튼 클릭 시 호출되는 함수
   const handlePlayPauseClick = () => {
     setIsPlaying(prev => !prev);
   };
 
+  // 다음 곡 또는 이전 곡 버튼 클릭 시 호출되는 함수
   const handleNextPrevClick = (next) => {
     setCurrentSongIndex(prevIndex => {
       let newIndex = next ? prevIndex + 1 : prevIndex - 1;
@@ -22,26 +22,24 @@ function App() {
     setIsPlaying(true);
   };
 
-  // const handleSongSelect = (index) => {
-  //   setCurrentSongIndex(index);
-  //   setIsPlaying(true);
-  // };
+  // 특정 곡을 선택했을 때 호출되는 함수
+  const handleSongSelect = (index) => {
+    setCurrentSongIndex(index);  // 선택한 곡의 인덱스로 설정
+    setIsPlaying(true);  // 곡을 선택하면 자동으로 재생 상태로 전환
+  };
 
   return (
     <div className="App">
       <div className="wrap__music">
         <MusicPlayer
-          currentSong={allMusic[currentSongIndex]}
-          isPlaying={isPlaying}
-          onPlayPauseClick={handlePlayPauseClick}
-          onNextPrevClick={handleNextPrevClick}
+          currentSong={allMusic[currentSongIndex]}  // 현재 재생 중인 곡의 데이터를 전달
+          isPlaying={isPlaying}  // 재생 상태를 전달
+          onPlayPauseClick={handlePlayPauseClick}  // 재생/일시정지 버튼 클릭 이벤트 핸들러를 전달
+          onNextPrevClick={handleNextPrevClick}  // 다음/이전 곡 버튼 클릭 이벤트 핸들러를 전달
+          allMusic={allMusic}  // 전체 음악 목록 전달
+          currentSongIndex={currentSongIndex}  // 현재 곡 인덱스 전달
+          onSongSelect={handleSongSelect}  // 곡 선택 핸들러 전달
         />
-
-        {/* <MusicList
-          allMusic={allMusic}
-          onSongSelect={handleSongSelect}
-          currentSongIndex={currentSongIndex}
-        /> */}
       </div>
     </div>
   );
